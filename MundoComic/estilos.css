@@ -48,12 +48,13 @@ color:yellow;
 }
 
 .hero{
-height:70vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4")
-center/cover;
+background:url("img/PORTADA-COMIC-INVIERNO.webp");
+background-size:cover;
+background-position:center;
 color:white;
 text-align:center;
 }
