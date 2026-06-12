@@ -24,3 +24,17 @@ alert(
 }
 
 }
+let progreso = 0;
+
+function avanzar(){
+
+if(progreso < 100){
+
+progreso += 25;
+
+document.getElementById("barra").style.width =
+progreso + "%";
+
+}
+
+}
