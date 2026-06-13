@@ -3,11 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mundo Cómic - Recurso Educativo Digital para aprender, explorar y crear historietas">
 
 <title>Mundo Cómic - Recurso Educativo Digital</title>
 
-<link rel="stylesheet" href="estilos.css">
+<!-- Estilos CSS integrados (Mejora 2) -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+
+  /* Tipografía (Mejora 4) */
+  h1, h2, h3 {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+  }
+
+  header {
+    background: #ff6b6b;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+  }
+
+  /* Navegación (Mejora 4) */
+  nav {
+    background: #4ecdc4;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  nav a:hover {
+    background: #ff6b6b;
+    transform: translateY(-2px);
+  }
+
+  /* Secciones (Mejora 4) */
+  section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  section h2 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Hero section */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .hero h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  /* Botones (Mejora 4 - animaciones) */
+  button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  button:hover {
+    background: #ff4757;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  }
+
+  button:active {
+    transform: translateY(-1px);
+  }
+
+  /* Objetivos Grid (Mejora 4) */
+  .objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .objetivo-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .objetivo-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .objetivo-card h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  .objetivo-card p {
+    font-size: 1rem;
+  }
+
+  /* Cards */
+  .card {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+
+  .card h3 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .card li::before {
+    content: "🎨";
+    position: absolute;
+    left: 0;
+  }
+
+  /* Actividades (Mejora 4) */
+  .actividad {
+    background: #fff3cd;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    border-left: 5px solid #ff6b6b;
+  }
+
+  .actividad h3 {
+    color: #ff6b6b;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .actividad img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  /* Nivel game (Mejora 4) */
+  .nivel {
+    background: #d1f7c4;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    border-left: 5px solid #4ecdc4;
+  }
+
+  .nivel h3 {
+    color: #2d965d;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .onomatopeyas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .onomatopeyas span {
+    background: #ff6b6b;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  }
+
+  .onomatopeyas span:hover {
+    transform: scale(1.1);
+    background: #ff4757;
+  }
+
+  input[type="text"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+
+  /* Progreso (Mejora 4 - animación) */
+  .progreso {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+  }
+
+  #barra {
+    height: 30px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    border-radius: 15px;
+    transition: width 0.5s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  /* Tabla (Mejora 4) */
+  table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background: #667eea;
+    color: white;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background: #f8f9fa;
+  }
+
+  tr:hover {
+    background: #e9ecef;
+  }
+
+  /* Checklist (Mejora 1 - estructura corregida) */
+  .checklist {
+    background: #fff3cd;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+  }
+
+  .checklist label {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .checklist label:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+  }
+
+  .checklist input[type="checkbox"] {
+    margin-right: 1rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  /* Footer (Mejora 4) */
+  footer {
+    background: #2d3436;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  footer h3 {
+    color: #ff6b6b;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  footer p {
+    margin: 0.5rem 0;
+    opacity: 0.9;
+  }
+
+  /* Responsive (Mejora 5 - accesibilidad) */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      gap: 1rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+    }
+
+    .objetivos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Accesibilidad (Mejora 5) */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Focus para navegación por teclado (Mejora 5) */
+  a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid #ff6b6b;
+    outline-offset: 2px;
+  }
+</style>
+
+<!-- Fuentes Google (Mejora 4) -->
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -27,232 +453,331 @@
 </nav>
 
 <section id="inicio" class="hero">
-
     <div class="contenido">
         <h2>Bienvenidos al Universo del Cómic</h2>
-
         <p>
             Descubre los elementos de la historieta,
             desarrolla tu lectura crítica y crea
             tus propias narraciones visuales.
         </p>
-
-        <button onclick="mostrarMensaje()">
-            Comenzar Aventura
-        </button>
-
+        <button onclick="mostrarMensaje()">Comenzar Aventura</button>
     </div>
-
 </section>
 
 <section id="objetivos">
-
     <h2>Objetivos de Aprendizaje</h2>
-
     <div class="objetivos-grid">
-
-<div class="objetivo-card">
-📖
-<h3>Reconocer</h3>
-<p>Identificar las partes principales del cómic.</p>
-</div>
-
-<div class="objetivo-card">
-🧠
-<h3>Comprender</h3>
-<p>Interpretar mensajes e ideas presentes en historietas.</p>
-</div>
-
-<div class="objetivo-card">
-💡
-<h3>Analizar</h3>
-<p>Desarrollar pensamiento crítico mediante la lectura.</p>
-</div>
-
-<div class="objetivo-card">
-🎨
-<h3>Crear</h3>
-<p>Diseñar un cómic digital utilizando Canva o Pixton.</p>
-</div>
-
-</div>
-
+        <div class="objetivo-card">
+            📖
+            <h3>Reconocer</h3>
+            <p>Identificar las partes principales del cómic.</p>
+        </div>
+        <div class="objetivo-card">
+            🧠
+            <h3>Comprender</h3>
+            <p>Interpretar mensajes e ideas presentes en historietas.</p>
+        </div>
+        <div class="objetivo-card">
+            💡
+            <h3>Analizar</h3>
+            <p>Desarrollar pensamiento crítico mediante la lectura.</p>
+        </div>
+        <div class="objetivo-card">
+            🎨
+            <h3>Crear</h3>
+            <p>Diseñar un cómic digital utilizando Canva o Pixton.</p>
+        </div>
+    </div>
 </section>
 
 <section id="explora">
-
     <h2>📖 Explora</h2>
-
+    
     <div class="card">
-
         <h3>¿Qué es el cómic?</h3>
-
         <p>
-            Una historieta (también conocida como cómic, tebeo o banda diseñada) es una forma de expresión artística y un medio de comunicación que consiste en una serie de dibujos —con o sin texto de acompañamiento— que, leídos en secuencia, componen un relato o una serie de conjeturas.
-
-En palabras simples: es una historia contada a través de viñetas con ilustraciones y texto.El cómic es una narración gráfica que combina
-            imágenes y texto para contar historias.
+            Una historieta (también conocida como cómic, tebeo o banda diseñada) es una forma de expresión artística y un medio de comunicación que consiste en una serie de dibujos —con o sin texto de acompañamiento— que, leídos en secuencia, componen un relato.
+            <br><br>
+            En palabras simples: es una historia contada a través de viñetas con ilustraciones y texto. El cómic es una narración gráfica que combina imágenes y texto para contar historias.
         </p>
-
     </div>
 
     <div class="card">
-
         <h3>Elementos del Cómic</h3>
-
         <ul>
             <li>Viñetas</li>
             <li>Bocadillos</li>
             <li>Onomatopeyas</li>
             <li>Líneas de movimiento</li>
         </ul>
-
     </div>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/eKnQOsfHeDU?si=RpbJvka_5N76Y5UP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    </div>
-
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/eKnQOsfHeDU?si=RpbJvka_5N76Y5UP" 
+        title="Video educativo sobre cómic" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen
+        style="display: block; margin: 2rem auto; max-width: 100%;">
+    </iframe>
 </section>
 
 <section id="desafios">
-
     <h2>🧠 Desafíos</h2>
 
     <div class="actividad">
-
         <h3>Actividad 1</h3>
-
-        <p>
-            Relaciona los tipos de bocadillos con
-            su función comunicativa.
-        </p>
-
-        <button onclick="actividad1()">
-            Iniciar Juego
-        </button>
-
+        <p>Relaciona los tipos de bocadillos con su función comunicativa.</p>
+        <button onclick="actividad1()">Iniciar Juego</button>
     </div>
 
     <div class="actividad">
-
         <h3>Actividad 2 - Lectura Crítica</h3>
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Mafalda.png"
-             alt="Mafalda">
-
-        <p>
-            ¿Qué crítica social expresa Mafalda
-            en sus historietas?
-        </p>
-
-        <textarea id="respuesta"
-        placeholder="Escribe aquí tu respuesta"></textarea>
-
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Mafalda.png" 
+             alt="Mafalda - historieta argentina con crítica social" 
+             loading="lazy">
+        <p>¿Qué crítica social expresa Mafalda en sus historietas?</p>
+        <textarea id="respuesta" placeholder="Escribe aquí tu respuesta" aria-label="Tu respuesta sobre Mafalda"></textarea>
     </div>
 
+    <div class="nivel">
+        <h3>🕵️ Nivel 1: ¿Quién soy?</h3>
+        <p id="pista">Soy el espacio donde ocurren las escenas de una historieta.</p>
+        <input type="text" id="respuestaNivel1" placeholder="Escribe tu respuesta" aria-label="Respuesta Nivel 1">
+        <button onclick="verificarNivel1()">Comprobar</button>
+        <p id="resultadoNivel1" style="margin-top: 1rem; font-weight: 600;"></p>
+    </div>
+
+    <div class="nivel">
+        <h3>💥 Nivel 2: Caza de Onomatopeyas</h3>
+        <div class="onomatopeyas">
+            <span onclick="correcto()">BOOM</span>
+            <span>BICICLETA</span>
+            <span onclick="correcto()">CRASH</span>
+            <span>MESA</span>
+            <span onclick="correcto()">POW</span>
+        </div>
+        <p id="mensajeNivel2" style="margin-top: 1rem; font-weight: 600;"></p>
+    </div>
+
+    <div class="nivel">
+        <h3>🎡 Nivel 3: Ruleta del Cómic</h3>
+        <button onclick="girarRuleta()">Girar Ruleta</button>
+        <p id="ruletaResultado" style="margin-top: 1rem; font-weight: 600; font-size: 1.2rem;"></p>
+    </div>
 </section>
 
 <section id="obra">
-
     <h2>Mi progreso en Mundo Cómic</h2>
+    
+    <div class="progreso">
+        <div id="barra"></div>
+    </div>
+    
+    <button onclick="avanzar()">Completar objetivo</button>
 
-<div class="progreso">
-<div id="barra"></div>
-</div>
+    <p style="margin: 2rem 0;">Crea un cómic de tres viñetas sobre el cuidado del medio ambiente.</p>
 
-<button onclick="avanzar()">
-Completar objetivo
-</button>
-
-    <p>
-        Crea un cómic de tres viñetas sobre
-        el cuidado del medio ambiente.
-    </p>
-
-    <h3> Lista de Chequeo Evaluativa</h3>
-
+    <h3>Lista de Chequeo Evaluativa</h3>
     <table>
-
         <tr>
             <th>Criterio</th>
             <th>Excelente</th>
             <th>Bueno</th>
             <th>Básico</th>
         </tr>
-
         <tr>
             <td>Creatividad</td>
             <td>4</td>
             <td>3</td>
             <td>2</td>
         </tr>
-
         <tr>
             <td>Narración</td>
             <td>4</td>
             <td>3</td>
             <td>2</td>
         </tr>
-
         <tr>
             <td>Ortografía</td>
             <td>4</td>
             <td>3</td>
             <td>2</td>
         </tr>
-
         <tr>
             <td>Uso del cómic</td>
             <td>4</td>
             <td>3</td>
             <td>2</td>
         </tr>
-
     </table>
 
+    <!-- Checklist movido dentro del body (Mejora 1) -->
+    <h2 style="margin-top: 3rem;">Mis metas de aprendizaje</h2>
+    <div class="checklist">
+        <label>
+            <input type="checkbox" onchange="actualizarChecklist()">
+            Reconozco los elementos del cómic
+        </label>
+        <label>
+            <input type="checkbox" onchange="actualizarChecklist()">
+            Comprendo una historieta
+        </label>
+        <label>
+            <input type="checkbox" onchange="actualizarChecklist()">
+            Analizo mensajes críticos
+        </label>
+        <label>
+            <input type="checkbox" onchange="actualizarChecklist()">
+            Creo mi propio cómic
+        </label>
+    </div>
 </section>
 
 <footer>
-
     <h3>Proyecto Educativo Digital</h3>
-
-    <p>
-        Licenciatura en Literatura y Lengua Castellana
-    </p>
-
-    <p>
-        Autor: Cipas Astrid Milar Jeison
-    </p>
-
+    <p>Licenciatura en Literatura y Lengua Castellana</p>
+    <p>Autor: Cipas Astrid Milar Jeison</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- JavaScript funcional (Mejora 3) -->
+<script>
+  // Variables globales
+  let progreso = 0;
+  let nivel2Puntos = 0;
+  let checklistCompletado = 0;
+
+  // Función 1: Mostrar mensaje de bienvenida
+  function mostrarMensaje() {
+    alert("🎉 ¡Bienvenido a tu aventura en Mundo Cómic! \n\nEmpieza explorando los elementos de la historieta y luego desafía tus conocimientos.");
+    document.getElementById('inicio').scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'center' 
+    });
+  }
+
+  // Función 2: Actividad 1
+  function actividad1() {
+    alert("🎮 ¡Juego de Bocadillos! \n\nEn este juego debes relacionar:\n• Bocadillo de diálogo → Conversación normal\n• Bocadillo de pensamiento → Pensamientos (nubes)\n• Bocadillo de voz fuerte → Letras grandes\n\n¿Ready para empezar?");
+  }
+
+  // Función 3: Verificar Nivel 1
+  function verificarNivel1() {
+    const respuesta = document.getElementById('respuestaNivel1').value.toLowerCase().trim();
+    const resultado = document.getElementById('resultadoNivel1');
+    
+    if (respuesta === 'viñeta' || respuesta === 'la viñeta') {
+      resultado.textContent = "✅ ¡Correcto! La viñeta es el espacio donde ocurren las escenas.";
+      resultado.style.color = "#2d965d";
+      progreso += 10;
+      actualizarProgreso();
+    } else {
+      resultado.textContent = "❌ Incorrecto. Prueba otra vez. La respuesta es 'viñeta'.";
+      resultado.style.color = "#ff4757";
+    }
+  }
+
+  // Función 4: Correcto (Nivel 2)
+  function correcto() {
+    nivel2Puntos += 1;
+    const mensaje = document.getElementById('mensajeNivel2');
+    
+    if (nivel2Puntos === 1) {
+      mensaje.textContent = "✅ ¡BOOM es una onomatopeya! (1/3)";
+    } else if (nivel2Puntos === 2) {
+      mensaje.textContent = "✅ ¡CRASH es una onomatopeya! (2/3)";
+    } else if (nivel2Puntos === 3) {
+      mensaje.textContent = "✅ ¡POW es una onomatopeya! (3/3) - ¡Nivel Completado! 🎉";
+      progreso += 15;
+      actualizarProgreso();
+    }
+    
+    mensaje.style.color = "#2d965d";
+  }
+
+  // Función 5: Girar Ruleta (Nivel 3)
+  function girarRuleta() {
+    const elementos = [
+      "🎨 ¿Qué es una viñeta?",
+      "💬 ¿Qué es un bocadillo?",
+      "💥 ¿Qué es una onomatopeya?",
+      "👁 ¿Qué son las líneas de movimiento?",
+      "📖 ¿Qué es un cómic?",
+      "🎭 ¿Qué es una secuencia?"
+    ];
+    
+    const indice = Math.floor(Math.random() * elementos.length);
+    const resultado = document.getElementById('ruletaResultado');
+    
+    resultado.textContent = "🎲 " + elementos[indice];
+    resultado.style.color = "#667eea";
+    progreso += 10;
+    actualizarProgreso();
+  }
+
+  // Función 6: Avanzar progreso
+  function avanzar() {
+    if (progreso < 100) {
+      progreso += 25;
+      if (progreso > 100) progreso = 100;
+      actualizarProgreso();
+      
+      if (progreso === 100) {
+        alert("🏆 ¡FELICIDADES! Has completado todos los objetivos de Mundo Cómic!\n\nAhora estás listo para crear tu propia historieta.");
+      }
+    }
+  }
+
+  // Función 7: Actualizar barra de progreso
+  function actualizarProgreso() {
+    const barra = document.getElementById('barra');
+    barra.style.width = progreso + "%";
+    
+    // Cambiar color según progreso
+    if (progreso < 50) {
+      barra.style.background = "linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 100%)";
+    } else if (progreso < 100) {
+      barra.style.background = "linear-gradient(90deg, #667eea 0%, #764ba2 100%)";
+    } else {
+      barra.style.background = "linear-gradient(90deg, #2d965d 0%, #4ecdc4 100%)";
+    }
+  }
+
+  // Función 8: Actualizar checklist
+  function actualizarChecklist() {
+    const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+    checklistCompletado = 0;
+    
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) checklistCompletado++;
+    });
+    
+    if (checklistCompletado === 4) {
+      progreso += 20;
+      if (progreso > 100) progreso = 100;
+      actualizarProgreso();
+      alert("✨ ¡Has completado todas tus metas de aprendizaje! ¡Excelente trabajo!");
+    }
+  }
+
+  // Scroll suave para navegación (Mejora 4)
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
+
+  // Inicializar barra de progreso
+  actualizarProgreso();
+</script>
 
 </body>
 </html>
-<h2>Mis metas de aprendizaje</h2>
-
-<div class="checklist">
-
-<label>
-<input type="checkbox">
- Reconozco los elementos del cómic
-</label>
-
-<label>
-<input type="checkbox">
- Comprendo una historieta
-</label>
-
-<label>
-<input type="checkbox">
- Analizo mensajes críticos
-</label>
-
-<label>
-<input type="checkbox">
- Creo mi propio cómic
-</label>
-
-</div>

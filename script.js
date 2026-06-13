@@ -38,3 +38,65 @@ progreso + "%";
 }
 
 }
+
+function verificarNivel1(){
+
+let respuesta =
+document.getElementById("respuestaNivel1")
+.value.toLowerCase();
+
+if(
+respuesta.includes("viñeta")
+){
+
+document.getElementById(
+"resultadoNivel1"
+).innerHTML =
+"🏆 Correcto. Has recuperado la Viñeta.";
+
+}else{
+
+document.getElementById(
+"resultadoNivel1"
+).innerHTML =
+"❌ Intenta nuevamente.";
+
+}
+
+}
+
+let puntos = 0;
+
+function correcto(){
+
+puntos++;
+
+document.getElementById(
+"mensajeNivel2"
+).innerHTML =
+"⭐ Has encontrado " + puntos +
+" onomatopeyas.";
+
+}
+
+function girarRuleta(){
+
+const opciones = [
+
+"Diálogo",
+"Pensamiento",
+"Grito",
+"Susurro"
+
+];
+
+let aleatorio =
+Math.floor(Math.random()*4);
+
+document.getElementById(
+"ruletaResultado"
+).innerHTML =
+"🎯 Te salió: " +
+opciones[aleatorio];
+
+}
