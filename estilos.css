@@ -843,3 +843,53 @@ footer p {
 .visible {
   visibility: visible;
 }
+
+.actividad-premium{
+
+background:linear-gradient(135deg,#ff6b00,#ffcc00);
+
+padding:40px;
+
+border-radius:20px;
+
+text-align:center;
+
+margin:40px auto;
+
+max-width:900px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+color:white;
+
+}
+
+.btn-jugar{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:18px 35px;
+
+background:white;
+
+color:#ff6b00;
+
+font-size:22px;
+
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:15px;
+
+transition:.3s;
+
+}
+
+.btn-jugar:hover{
+
+transform:scale(1.08);
+
+}
