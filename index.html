@@ -4,437 +4,542 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Mundo Cómic - Recurso Educativo Digital para aprender, explorar y crear historietas">
+<meta name="author" content="Cipas Astrid Milar Jeison">
+<meta name="keywords" content="cómic, historieta, educación, viñetas, bocadillos, onomatopeyas, aprendizaje">
 
 <title>Mundo Cómic - Recurso Educativo Digital</title>
 
-<!-- Estilos CSS integrados (Mejora 2) -->
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-  }
-
-  /* Tipografía (Mejora 4) */
-  h1, h2, h3 {
-    font-family: 'Bangers', cursive;
-    letter-spacing: 2px;
-  }
-
-  header {
-    background: #ff6b6b;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-
-  header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  header p {
-    font-size: 1.3rem;
-    opacity: 0.95;
-  }
-
-  /* Navegación (Mejora 4) */
-  nav {
-    background: #4ecdc4;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-
-  nav a:hover {
-    background: #ff6b6b;
-    transform: translateY(-2px);
-  }
-
-  /* Secciones (Mejora 4) */
-  section {
-    padding: 3rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    margin: 2rem auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  }
-
-  section h2 {
-    color: #ff6b6b;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  /* Hero section */
-  .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
-  }
-
-  .hero h2 {
-    color: white;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-  }
-
-  /* Botones (Mejora 4 - animaciones) */
-  button {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  }
-
-  button:hover {
-    background: #ff4757;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  }
-
-  button:active {
-    transform: translateY(-1px);
-  }
-
-  /* Objetivos Grid (Mejora 4) */
-  .objetivos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-  }
-
-  .objetivo-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
-
-  .objetivo-card:hover {
-    transform: translateY(-10px);
-  }
-
-  .objetivo-card h3 {
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
-
-  .objetivo-card p {
-    font-size: 1rem;
-  }
-
-  /* Cards */
-  .card {
-    background: #f8f9fa;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  }
-
-  .card h3 {
-    color: #667eea;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .card ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .card li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-
-  .card li::before {
-    content: "🎨";
-    position: absolute;
-    left: 0;
-  }
-
-  /* Actividades (Mejora 4) */
-  .actividad {
-    background: #fff3cd;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border-radius: 10px;
-    border-left: 5px solid #ff6b6b;
-  }
-
-  .actividad h3 {
-    color: #ff6b6b;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-
-  .actividad img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 1rem 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
-
-  textarea {
-    width: 100%;
-    padding: 1rem;
-    margin: 1rem 0;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    resize: vertical;
-    min-height: 100px;
-  }
-
-  textarea:focus {
-    outline: none;
-    border-color: #667eea;
-  }
-
-  /* Nivel game (Mejora 4) */
-  .nivel {
-    background: #d1f7c4;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border-radius: 10px;
-    border-left: 5px solid #4ecdc4;
-  }
-
-  .nivel h3 {
-    color: #2d965d;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-
-  .onomatopeyas {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-  }
-
-  .onomatopeyas span {
-    background: #ff6b6b;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  }
-
-  .onomatopeyas span:hover {
-    transform: scale(1.1);
-    background: #ff4757;
-  }
-
-  input[type="text"] {
-    padding: 0.8rem;
-    font-size: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    margin: 1rem 0;
-  }
-
-  input[type="text"]:focus {
-    outline: none;
-    border-color: #667eea;
-  }
-
-  /* Progreso (Mejora 4 - animación) */
-  .progreso {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 10px;
-    margin: 1rem 0;
-  }
-
-  #barra {
-    height: 30px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    width: 0%;
-    border-radius: 15px;
-    transition: width 0.5s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-
-  /* Tabla (Mejora 4) */
-  table {
-    width: 100%;
-    margin: 2rem 0;
-    border-collapse: collapse;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  }
-
-  th, td {
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid #ddd;
-  }
-
-  th {
-    background: #667eea;
-    color: white;
-    font-weight: 600;
-  }
-
-  tr:nth-child(even) {
-    background: #f8f9fa;
-  }
-
-  tr:hover {
-    background: #e9ecef;
-  }
-
-  /* Checklist (Mejora 1 - estructura corregida) */
-  .checklist {
-    background: #fff3cd;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 10px;
-  }
-
-  .checklist label {
-    display: block;
-    margin: 1rem 0;
-    padding: 1rem;
-    background: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .checklist label:hover {
-    background: #f8f9fa;
-    transform: translateX(5px);
-  }
-
-  .checklist input[type="checkbox"] {
-    margin-right: 1rem;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-
-  /* Footer (Mejora 4) */
-  footer {
-    background: #2d3436;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    margin-top: 3rem;
-  }
-
-  footer h3 {
-    color: #ff6b6b;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  footer p {
-    margin: 0.5rem 0;
-    opacity: 0.9;
-  }
-
-  /* Responsive (Mejora 5 - accesibilidad) */
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    nav ul {
-      gap: 1rem;
-    }
-
-    nav a {
-      font-size: 0.9rem;
-      padding: 0.4rem 0.8rem;
-    }
-
-    section {
-      padding: 2rem 1rem;
-    }
-
-    .objetivos-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Accesibilidad (Mejora 5) */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
-
-  /* Focus para navegación por teclado (Mejora 5) */
-  a:focus, button:focus, input:focus, textarea:focus {
-    outline: 3px solid #ff6b6b;
-    outline-offset: 2px;
-  }
-</style>
-
-<!-- Fuentes Google (Mejora 4) -->
+<!-- Fuentes Google -->
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Estilos CSS Profesional -->
+<style>
+/* ═══════════════════════════════════════════════
+   MUNDO CÓMIC - CSS PROFESIONAL 2024
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* Colores principales */
+  --color-primary: #ff6b6b;
+  --color-primary-dark: #ff4757;
+  --color-secondary: #667eea;
+  --color-secondary-dark: #764ba2;
+  --color-accent: #ffe066;
+  --color-success: #4CAF50;
+  --color-success-dark: #3d8b40;
+  
+  /* Colores neutros */
+  --color-dark: #222222;
+  --color-light: #f4f7fc;
+  --color-white: #ffffff;
+  --color-gray: #dddddd;
+  
+  /* Espaciado */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 60px;
+  
+  /* Tipografía */
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Bangers', cursive;
+  
+  /* Border radius */
+  --radius-md: 15px;
+  --radius-lg: 20px;
+  --radius-round: 50px;
+  
+  /* Transiciones */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Shadows */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--color-dark);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+}
+
+header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shimmer 15s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+header h1 {
+  font-size: clamp(3rem, 8vw, 4rem);
+  margin-bottom: 0.5rem;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+}
+
+header p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+nav {
+  background: var(--color-dark);
+  padding: var(--spacing-sm) 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-md);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+nav a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1200px;
+  margin: var(--spacing-lg) auto;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+section h2 {
+  color: var(--color-primary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-xl);
+  margin: var(--spacing-lg) auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '🎨 📖 💥 ✨';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-size: 4rem;
+  opacity: 0.2;
+  animation: flotar 6s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '🦸 🖌️ 📝 ⭐';
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  font-size: 4rem;
+  opacity: 0.2;
+  animation: flotar 8s ease-in-out infinite reverse;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.hero .contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  color: var(--color-white);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+button {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  border: none;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  border-radius: var(--radius-round);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+button:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.objetivos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+}
+
+.objetivo-card {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  color: var(--color-white);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.objetivo-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.objetivo-card h3 {
+  font-size: 2rem;
+  margin: var(--spacing-md) 0;
+}
+
+.objetivo-card p {
+  font-size: 1rem;
+}
+
+.objetivo-card span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card {
+  background: var(--color-light);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.card h3 {
+  color: var(--color-secondary);
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card li {
+  padding: var(--spacing-sm) 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.card li::before {
+  content: "🎨";
+  position: absolute;
+  left: 0;
+}
+
+.actividad-premium {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe066 100%);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--radius-md);
+  border-left: 5px solid var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.actividad-premium h3 {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.btn-jugar {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: 16px 40px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  text-decoration: none;
+  border-radius: var(--radius-round);
+  margin-top: var(--spacing-md);
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-jugar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.nivel {
+  background: #d1f7c4;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: var(--radius-md);
+  border-left: 5px solid #4ecdc4;
+}
+
+.nivel h3 {
+  color: #2d965d;
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.onomatopeyas {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: var(--spacing-md) 0;
+}
+
+.onomatopeyas span {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.onomatopeyas span:hover {
+  transform: scale(1.1);
+  background: var(--color-primary-dark);
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  border: 2px solid var(--color-gray);
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.progreso {
+  background: var(--color-light);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0;
+}
+
+#barra {
+  height: 30px;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  width: 0%;
+  border-radius: var(--radius-round);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+table {
+  width: 100%;
+  margin: var(--spacing-lg) 0;
+  border-collapse: collapse;
+  box-shadow: var(--shadow-md);
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+th, td {
+  padding: var(--spacing-md);
+  text-align: center;
+  border: 1px solid var(--color-gray);
+}
+
+th {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: var(--color-light);
+}
+
+tr:hover td {
+  background: var(--color-accent);
+}
+
+.checklist {
+  background: #fff3cd;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-md);
+}
+
+.checklist label {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.checklist label:hover {
+  background: var(--color-accent);
+  transform: translateX(5px);
+}
+
+.checklist input[type="checkbox"] {
+  margin-right: var(--spacing-md);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+footer {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: var(--spacing-xl);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+footer h3 {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+footer p {
+  margin: var(--spacing-xs) 0;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: 2.5rem; }
+  
+  nav ul { gap: var(--spacing-sm); }
+  
+  section { padding: var(--spacing-lg) var(--spacing-sm); }
+  
+  .objetivos-grid { grid-template-columns: 1fr; }
+  
+  .hero h2 { font-size: 2rem; }
+}
+</style>
 </head>
 <body>
 
@@ -454,13 +559,13 @@
 
 <section id="inicio" class="hero">
     <div class="contenido">
-        <h2>Bienvenidos al Universo del Cómic</h2>
+        <h2>Bienvenidos al Universo delCómic</h2>
         <p>
             Descubre los elementos de la historieta,
             desarrolla tu lectura crítica y crea
             tus propias narraciones visuales.
         </p>
-        <button onclick="mostrarMensaje()">Comenzar Aventura</button>
+        <button onclick="mostrarMensaje()">🚀 Comenzar Aventura</button>
     </div>
 </section>
 
@@ -468,22 +573,22 @@
     <h2>Objetivos de Aprendizaje</h2>
     <div class="objetivos-grid">
         <div class="objetivo-card">
-            📖
+            <span>📖</span>
             <h3>Reconocer</h3>
             <p>Identificar las partes principales del cómic.</p>
         </div>
         <div class="objetivo-card">
-            🧠
+            <span>🧠</span>
             <h3>Comprender</h3>
             <p>Interpretar mensajes e ideas presentes en historietas.</p>
         </div>
         <div class="objetivo-card">
-            💡
+            <span>💡</span>
             <h3>Analizar</h3>
             <p>Desarrollar pensamiento crítico mediante la lectura.</p>
         </div>
         <div class="objetivo-card">
-            🎨
+            <span>🎨</span>
             <h3>Crear</h3>
             <p>Diseñar un cómic digital utilizando Canva o Pixton.</p>
         </div>
@@ -496,9 +601,9 @@
     <div class="card">
         <h3>¿Qué es el cómic?</h3>
         <p>
-            Una historieta (también conocida como cómic, tebeo o banda diseñada) es una forma de expresión artística y un medio de comunicación que consiste en una serie de dibujos —con o sin texto de acompañamiento— que, leídos en secuencia, componen un relato.
+            Una historieta es una forma de expresión artística que consiste en una serie de dibujos —con o sin texto— que, leídos en secuencia, componen un relato.
             <br><br>
-            En palabras simples: es una historia contada a través de viñetas con ilustraciones y texto. El cómic es una narración gráfica que combina imágenes y texto para contar historias.
+            En palabras simples: es una historia contada a través de viñetas con ilustraciones y texto.
         </p>
     </div>
 
@@ -515,13 +620,12 @@
     <iframe 
         width="560" 
         height="315" 
-        src="https://www.youtube.com/embed/eKnQOsfHeDU?si=RpbJvka_5N76Y5UP" 
+        src="https://www.youtube.com/embed/eKnQOsfHeDU" 
         title="Video educativo sobre cómic" 
         frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
-        style="display: block; margin: 2rem auto; max-width: 100%;">
+        style="display: block; margin: var(--spacing-lg) auto; max-width: 100%; border-radius: var(--radius-md);">
     </iframe>
 </section>
 
@@ -529,32 +633,11 @@
     <h2>🧠 Desafíos</h2>
 
     <div class="actividad-premium">
-
-<h3>🎮 Actividad 1: Desafío de los Elementos del Cómic</h3>
-
-<p>
-Demuestra tus conocimientos sobre viñetas, bocadillos, cartelas y onomatopeyas.
-Supera el reto y conviértete en un experto historietista.
-</p>
-
-<a
-href="https://wordwall.net/es/resource/10157101/elementos-de-la-historieta-o-c%C3%B3mic"
-target="_blank"
-class="btn-jugar">
-
-🚀 Iniciar Desafío
-
-</a>
-
-</div>
-
-    <div class="actividad">
-        <h3>Actividad 2 - Lectura Crítica</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Mafalda.png" 
-             alt="Mafalda - historieta argentina con crítica social" 
-             loading="lazy">
-        <p>¿Qué crítica social expresa Mafalda en sus historietas?</p>
-        <textarea id="respuesta" placeholder="Escribe aquí tu respuesta" aria-label="Tu respuesta sobre Mafalda"></textarea>
+        <h3>🎮 Actividad 1: Desafío de los Elementos del Cómic</h3>
+        <p>Demuestra tus conocimientos sobre viñetas, bocadillos, cartelas y onomatopeyas.</p>
+        <a href="https://wordwall.net/es/resource/10157101/elementos-de-la-historieta-o-c%C3%B3mic" target="_blank" class="btn-jugar">
+            🚀 Iniciar Desafío Externo
+        </a>
     </div>
 
     <div class="nivel">
@@ -562,7 +645,7 @@ class="btn-jugar">
         <p id="pista">Soy el espacio donde ocurren las escenas de una historieta.</p>
         <input type="text" id="respuestaNivel1" placeholder="Escribe tu respuesta" aria-label="Respuesta Nivel 1">
         <button onclick="verificarNivel1()">Comprobar</button>
-        <p id="resultadoNivel1" style="margin-top: 1rem; font-weight: 600;"></p>
+        <p id="resultadoNivel1" style="margin-top: var(--spacing-md); font-weight: 600;"></p>
     </div>
 
     <div class="nivel">
@@ -574,13 +657,13 @@ class="btn-jugar">
             <span>MESA</span>
             <span onclick="correcto()">POW</span>
         </div>
-        <p id="mensajeNivel2" style="margin-top: 1rem; font-weight: 600;"></p>
+        <p id="mensajeNivel2" style="margin-top: var(--spacing-md); font-weight: 600;"></p>
     </div>
 
     <div class="nivel">
         <h3>🎡 Nivel 3: Ruleta del Cómic</h3>
         <button onclick="girarRuleta()">Girar Ruleta</button>
-        <p id="ruletaResultado" style="margin-top: 1rem; font-weight: 600; font-size: 1.2rem;"></p>
+        <p id="ruletaResultado" style="margin-top: var(--spacing-md); font-weight: 600; font-size: 1.2rem;"></p>
     </div>
 </section>
 
@@ -593,7 +676,7 @@ class="btn-jugar">
     
     <button onclick="avanzar()">Completar objetivo</button>
 
-    <p style="margin: 2rem 0;">Crea un cómic de tres viñetas sobre el cuidado del medio ambiente.</p>
+    <p style="margin: var(--spacing-lg) 0;">Crea un cómic de tres viñetas sobre el cuidado del medio ambiente.</p>
 
     <h3>Lista de Chequeo Evaluativa</h3>
     <table>
@@ -629,8 +712,7 @@ class="btn-jugar">
         </tr>
     </table>
 
-    <!-- Checklist movido dentro del body (Mejora 1) -->
-    <h2 style="margin-top: 3rem;">Mis metas de aprendizaje</h2>
+    <h2 style="margin-top: var(--spacing-xl);">Mis metas de aprendizaje</h2>
     <div class="checklist">
         <label>
             <input type="checkbox" onchange="actualizarChecklist()">
@@ -657,139 +739,94 @@ class="btn-jugar">
     <p>Autor: Cipas Astrid Milar Jeison</p>
 </footer>
 
-<!-- JavaScript funcional (Mejora 3) -->
 <script>
-  // Variables globales
   let progreso = 0;
   let nivel2Puntos = 0;
-  let checklistCompletado = 0;
 
-  // Función 1: Mostrar mensaje de bienvenida
   function mostrarMensaje() {
-    alert("🎉 ¡Bienvenido a tu aventura en Mundo Cómic! \n\nEmpieza explorando los elementos de la historieta y luego desafía tus conocimientos.");
-    document.getElementById('inicio').scrollIntoView({ 
-      behavior: 'smooth', 
-      block: 'center' 
-    });
+    alert("🎉 ¡Bienvenido a Mundo Cómic! Comienza tu aventura educativa.");
+    document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Función 2: Actividad 1
-  function actividad1() {
-    alert("🎮 ¡Juego de Bocadillos! \n\nEn este juego debes relacionar:\n• Bocadillo de diálogo → Conversación normal\n• Bocadillo de pensamiento → Pensamientos (nubes)\n• Bocadillo de voz fuerte → Letras grandes\n\n¿Ready para empezar?");
-  }
-
-  // Función 3: Verificar Nivel 1
   function verificarNivel1() {
     const respuesta = document.getElementById('respuestaNivel1').value.toLowerCase().trim();
     const resultado = document.getElementById('resultadoNivel1');
     
-    if (respuesta === 'viñeta' || respuesta === 'la viñeta') {
+    if (respuesta === 'viñeta') {
       resultado.textContent = "✅ ¡Correcto! La viñeta es el espacio donde ocurren las escenas.";
       resultado.style.color = "#2d965d";
       progreso += 10;
       actualizarProgreso();
     } else {
-      resultado.textContent = "❌ Incorrecto. Prueba otra vez. La respuesta es 'viñeta'.";
+      resultado.textContent = "❌ Incorrecto. La respuesta es 'viñeta'.";
       resultado.style.color = "#ff4757";
     }
   }
 
-  // Función 4: Correcto (Nivel 2)
   function correcto() {
     nivel2Puntos += 1;
     const mensaje = document.getElementById('mensajeNivel2');
     
-    if (nivel2Puntos === 1) {
-      mensaje.textContent = "✅ ¡BOOM es una onomatopeya! (1/3)";
-    } else if (nivel2Puntos === 2) {
-      mensaje.textContent = "✅ ¡CRASH es una onomatopeya! (2/3)";
-    } else if (nivel2Puntos === 3) {
-      mensaje.textContent = "✅ ¡POW es una onomatopeya! (3/3) - ¡Nivel Completado! 🎉";
+    if (nivel2Puntos === 1) mensaje.textContent = "✅ ¡BOOM es onomatopeya! (1/3)";
+    else if (nivel2Puntos === 2) mensaje.textContent = "✅ ¡CRASH es onomatopeya! (2/3)";
+    else if (nivel2Puntos === 3) {
+      mensaje.textContent = "✅ ¡POW es onomatopeya! (3/3) - ¡Nivel Completado! 🎉";
       progreso += 15;
       actualizarProgreso();
     }
-    
     mensaje.style.color = "#2d965d";
   }
 
-  // Función 5: Girar Ruleta (Nivel 3)
   function girarRuleta() {
     const elementos = [
       "🎨 ¿Qué es una viñeta?",
       "💬 ¿Qué es un bocadillo?",
       "💥 ¿Qué es una onomatopeya?",
-      "👁 ¿Qué son las líneas de movimiento?",
-      "📖 ¿Qué es un cómic?",
-      "🎭 ¿Qué es una secuencia?"
+      "👁 ¿Qué son líneas de movimiento?"
     ];
-    
     const indice = Math.floor(Math.random() * elementos.length);
-    const resultado = document.getElementById('ruletaResultado');
-    
-    resultado.textContent = "🎲 " + elementos[indice];
-    resultado.style.color = "#667eea";
+    document.getElementById('ruletaResultado').textContent = "🎲 " + elementos[indice];
     progreso += 10;
     actualizarProgreso();
   }
 
-  // Función 6: Avanzar progreso
   function avanzar() {
     if (progreso < 100) {
       progreso += 25;
       if (progreso > 100) progreso = 100;
       actualizarProgreso();
-      
-      if (progreso === 100) {
-        alert("🏆 ¡FELICIDADES! Has completado todos los objetivos de Mundo Cómic!\n\nAhora estás listo para crear tu propia historieta.");
-      }
+      if (progreso === 100) alert("🏆 ¡FELICIDADES! Completaste todos los objetivos!");
     }
   }
 
-  // Función 7: Actualizar barra de progreso
   function actualizarProgreso() {
     const barra = document.getElementById('barra');
     barra.style.width = progreso + "%";
     
-    // Cambiar color según progreso
-    if (progreso < 50) {
-      barra.style.background = "linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 100%)";
-    } else if (progreso < 100) {
-      barra.style.background = "linear-gradient(90deg, #667eea 0%, #764ba2 100%)";
-    } else {
-      barra.style.background = "linear-gradient(90deg, #2d965d 0%, #4ecdc4 100%)";
-    }
+    if (progreso < 50) barra.style.background = "linear-gradient(90deg, #ff6b6b, #ff8e8e)";
+    else if (progreso < 100) barra.style.background = "linear-gradient(90deg, #667eea, #764ba2)";
+    else barra.style.background = "linear-gradient(90deg, #4CAF50, #3d8b40)";
   }
 
-  // Función 8: Actualizar checklist
   function actualizarChecklist() {
     const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
-    checklistCompletado = 0;
+    const completado = checkboxes.filter(cb => cb.checked).length;
     
-    checkboxes.forEach(checkbox => {
-      if (checkbox.checked) checklistCompletado++;
-    });
-    
-    if (checklistCompletado === 4) {
+    if (completado === 4) {
       progreso += 20;
       if (progreso > 100) progreso = 100;
       actualizarProgreso();
-      alert("✨ ¡Has completado todas tus metas de aprendizaje! ¡Excelente trabajo!");
+      alert("✨ ¡Completaste todas tus metas! Excelente trabajo!");
     }
   }
 
-  // Scroll suave para navegación (Mejora 4)
   document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-  // Inicializar barra de progreso
   actualizarProgreso();
 </script>
 
